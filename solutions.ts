@@ -7,7 +7,9 @@ const multiplyValue =(value :number,multiplier?:number):number=>{
     }
 };
 
+
 const processInput =(value:string | number | boolean):string|number=>{
+
     if(typeof value ==="string"){
         return value.trim().toLowerCase();
     }
@@ -19,8 +21,12 @@ const processInput =(value:string | number | boolean):string|number=>{
     }
 };
 
-const formatCoordinate =(cordinate:readonly[number ,number, string]):string => 
+
+
+const formatCoordinate =  (cordinate:readonly[number ,number, string]):string => 
+
     {
+
     const[latitude,longitude,location]=cordinate;
 
   return "Location: " + location +" (" + latitude + ", " + longitude +")";
@@ -30,6 +36,7 @@ const formatCoordinate =(cordinate:readonly[number ,number, string]):string =>
 
 const concatenateArrays =<T>(...arr:T[][] ):T[]=>{
     let final:T[]=[];
+    
     for(let i =0; i<arr.length;i++){
         final=final.concat(arr[i]);
     }
@@ -57,16 +64,7 @@ const getPopularCourses=   (courses:Course[],minStudent:number):Course[]=>
 
 }
 
-const pluckValues =<T,K extends keyof T>(items:T[],key:K):T[K][] =>{
-    const final : T[K][]=[];
 
-
-    for(const arr of items ){
-        final.push(arr[key]);
-    }
-    return final;
-
-}
 class Employee {
     protected name:string;
     private baseSalary :number;
@@ -76,17 +74,25 @@ class Employee {
         this.baseSalary=baseSalary;
     }
     getDetails():string{
-        return`Employee:${this.name},BaseSalary:${this.baseSalary}`;
+        return`Employee: ${this.name},BaseSalary: ${this.baseSalary}`;
     }
 }
 class Manager extends Employee{
+
     private department :string;
-    constructor(name: string, baseSalary: number, department: string) {
+
+    constructor(name: string, baseSalary: number, department: string)
+     {
     super(name, baseSalary);
     this.department = department;
   }
+
+
   getRoleInfo(): string {
+
     return `Manager of ${this.department}: ${this.name}`;
+
+
   }
 }
 
